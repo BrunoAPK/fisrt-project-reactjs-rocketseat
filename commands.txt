@@ -1,3 +1,9 @@
 para rodar o projeto na porta 8080
 
 $ yarn webpack-dev-server --mode development
+
+depois que adicionamos o script no package.json 
+só precisamos rodar
+
+$yarn dev
+

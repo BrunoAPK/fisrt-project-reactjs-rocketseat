@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
+import './App.css';
+import BackgroundImage from './assets/background.jpg'
 
 //Estato & Imutabilidade
 // Não devemos alterar o estato da propriedade e sim criar uma nova propriedade
@@ -8,7 +10,7 @@ function App() {
 
     function handleAddProject() {
         //errado
-        // projects.push(`Novo projeto para ${Date.now()}`);
+        // projects.push(`Novo proqjeto para ${Date.now()}`);
         //certo
         setProjects([...projects,`Novo projeto para ${Date.now()}`]);
     }
@@ -16,7 +18,7 @@ function App() {
     return (
       <>
         <Header title="Projects" />
-        
+        <img width={300} src={BackgroundImage} alt="wallpaper gato"/>
         <ul>
     {projects.map(project => <li key={project}>{project}</li>)}  
         </ul>
