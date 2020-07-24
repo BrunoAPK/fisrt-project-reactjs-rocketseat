@@ -1,0 +1,3 @@
+para rodar o projeto na porta 8080
+
+$ yarn webpack-dev-server --mode development

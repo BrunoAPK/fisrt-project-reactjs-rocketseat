@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
 
-//Propriedades
-// <> </> fragment é quando temos que envolver dois elementos em um elemento mais não queremos que esse elemento exista no resultado final
+//Estato & Imutabilidade
+// Não devemos alterar o estato da propriedade e sim criar uma nova propriedade
 function App() {
+    const [projects, setProjects] = useState(['Desenvolvimento de app', 'Desenvolvimento Web']);
+
+    function handleAddProject() {
+        //errado
+        // projects.push(`Novo projeto para ${Date.now()}`);
+        //certo
+        setProjects([...projects,`Novo projeto para ${Date.now()}`]);
+    }
+
     return (
-        <Header title="Homepage">
-            <ul>
-                <li>Home Page</li>
-                <li>Login</li>
-                <li>Sigout</li>
-            </ul>
-        </Header>
+      <>
+        <Header title="Projects" />
+        
+        <ul>
+    {projects.map(project => <li key={project}>{project}</li>)}  
+        </ul>
+        <button type="button" onClick={handleAddProject}>Adicionar novo projeto</button>
+      </>
     );
 }
 export default App;
